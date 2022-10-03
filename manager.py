@@ -55,6 +55,7 @@ while True:
     print('2. удалить (файл/папку)')
     print('3. копировать (файл/папку)')
     print('4. просмотр содержимого рабочей директории')
+    print('4.1 сохранить содержимое рабочей директории')
     print('5. посмотреть только папки')
     print('6. посмотреть только файлы')
     print('7. просмотр информации об операционной системе')
@@ -74,11 +75,17 @@ while True:
         os.removedirs(dir_name)
     elif choice == '3':
         dir_name = input('Введите название копируемого файла: ')
-        os.path.exists(dir_name)
+        os.path.exists(f'new')
         copy_dir_name = input('Введите название нового файла: ')
-        shutil.copy(dir_name, copy_dir_name)
+        shutil.copy(f'new', f'copy_new')
     elif choice == '4':
         print(os.listdir())
+    elif choice == '4.1':
+        dirs = os.listdir('.')
+        with open('listdir.txt', 'w') as f:
+            f.write(f'{dirs}')
+        with open('listdir.txt', 'r') as f:
+            print(f.read())
     elif choice == '5':
         for dirs in os.walk("."):
             print(dirs)
@@ -100,6 +107,11 @@ while True:
         os.chdir(path)
     elif choice == '12':
         break
+
+
+
+
+
 
 
 
