@@ -798,3 +798,5 @@ def viktorina():
             break
         else:
             continue
+
+
